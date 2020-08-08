@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: root
+  host: 127.0.0.1
+
+development:
+  <<: *default
+  database: ebina_test
+
+test:
+  <<: *default
+  database: ebina_test
+
+production:
+  <<: *default
+  database: ebina_test
+  username: hello_world_rails
+  password: <%= ENV['HELLO_WORLD_RAILS_DATABASE_PASSWORD'] %>
